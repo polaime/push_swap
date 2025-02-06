@@ -30,8 +30,8 @@ int    *pushswap(int *stack_a, int limit)
         if (i == limit -1)
         {
             indice_b = push_b(stack_a, stack_b, indice_a, indice_b);
+			i = 2;
 			indice_a = 1;
-			pushswap(stack_a, limit);
         }
     }
     return (stack_b);
