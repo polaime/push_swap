@@ -6,14 +6,14 @@
 /*   By: pthibaud <pthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 17:42:43 by pthibaud          #+#    #+#             */
-/*   Updated: 2025/02/04 16:11:03 by pthibaud         ###   ########.fr       */
+/*   Updated: 2025/02/06 14:56:07 by pthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h" 
 #include <stdio.h>
 
-int	ft_atoi(const char *str)
+int	ft_atoi(char *str)
 {
 	int	i;
 	int	nb;
