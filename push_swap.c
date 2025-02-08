@@ -1,37 +1,31 @@
 #include "push_swap.h"
 // turc mecanique
-int    *pushswap(t_stack *stack_a, int limit)
+int    *push_swap(t_stack *stack_a, int limit)
 {
-    int     indice_a;
-    int     indice_b;
     int     i;
 
 	i = 1;
-    indice_a = 0;
-    indice_b = 0;
-    t_stack stack_b = NULL;
-
-    // while (stack_a[indice_a] != stack_a[i] && indice_b <= limit -1)
-	// {
-	// 	if(stack_a[i] == stack_b[i])
-	// 	{
-	// 		while(stack_a[indice_a] == stack_b[indice_b])
-	// 			indice_a++;
-	// 	}
-    //     while (stack_a[indice_a] < stack_a[i] && i <= limit - 1) 
-	// 		i++;
-    //     if(stack_a[indice_a] > stack_a[i] && i != limit - 1)
-    //     {
-    //     	indice_a = i;
-    //     	i = 0;
-    //     }
-    //     if (i == limit -1)
-    //     {
-    //         indice_b = push_b(stack_a, stack_b, indice_a, indice_b);
-	// 		i = 2;
-	// 		indice_a = 1;
-    //     }
-    } 
-    return (stack_b);
+    t_stack *stack_b = NULL;
+    push_b(&stack_a, &stack_b);
+    if (stack_b == NULL)
+        return (NULL);
+    while (!stack_a || !stack_b)
+	{
+        // if (stack_a -> value > stack_a -> next -> value)
+        //     swap_a(&stack_a);
+        if (stack_a -> value < stack_b -> value)
+        {
+            push_b(&stack_a, &stack_b);
+            *stack_a = *stack_a -> next;
+        }
+        if (stack_a -> value > stack_b)
+            push_a(&stack_a, &stack_b);
+        if (stack_a == NULL)
+        {
+            while (stack_b == NULL)
+                push_a(&stack_a, &stack_b);
+        }
+    }
+    return (stack_a);
 }
 

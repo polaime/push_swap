@@ -20,9 +20,13 @@ typedef struct s_data
     int size_b;
 }
 t_data;
-int    *pushswap(t_stack *stack_a, int limit)
+
+int         *push_swap(t_stack *stack_a, int limit);
 int         main(int argc, char **argv);
-int         push_b(int *stack_a, int *stack_b, int indice_a, int indice_b);
+void        push_b(t_stack **stack_a, t_stack **stack_b);
+void        push_a(t_stack **stack_a, t_stack **stack_b);
+void        swap_a(t_stack **stack_a);
+void        swap_b(t_stack **stack_b);
 void	    ft_putstr(char *s);
 int	        ft_atoi(char *str);
 

@@ -6,7 +6,7 @@
 /*   By: pthibaud <pthibaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 17:42:43 by pthibaud          #+#    #+#             */
-/*   Updated: 2025/02/06 14:56:07 by pthibaud         ###   ########.fr       */
+/*   Updated: 2025/02/08 20:34:25 by pthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ int	ft_atoi(char *str)
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-			nb = (nb * 10);
-			nb = nb + str[i] - '0';
+		nb = (nb * 10);
+		nb = nb + str[i] - '0';
 		i++;
 	}
 	if (r % 2 == 1)
