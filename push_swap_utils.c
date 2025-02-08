@@ -1,32 +1,44 @@
 #include "push_swap.h"
 
-int push_b(int *stack_a, int *stack_b, int indice_a, int indice_b)
+void push_b(t_stack **stack_a, t_stack **stack_b)
 {
-   stack_b[indice_b] = stack_a[indice_a];
+   if (*stack_a == NULL)
+      return; 
+   t_stack *temp = *stack_a;
+   *stack_a = (*stack_a)-> next;
+   temp -> next = *stack_b;
+   *stack_b = temp;
    ft_putstr("pb\n");
-   return(indice_b + 1); 
 }
-int push_a(int *stack_a, int *stack_b, int indice_a, int indice_b)
+void push_a(t_stack **stack_a, t_stack **stack_b)
 {
-   stack_a[indice_a] = stack_b[indice_b];
-   ft_putstr("pa");
-   return(indice_a); 
+   if (*stack_b == NULL)
+      return; 
+   t_stack *temp = *stack_b;
+   *stack_b = (*stack_b)-> next;
+   temp -> next = *stack_a;
+   *stack_a = temp;
+   ft_putstr("pa\n"); 
 }
-void swap_a(int *stack_a, int *stack_b, int indice_a, int indice_b)
+void swap_a(t_stack **stack_a)
 {
-   int tmp;
-
-   tmp = stack_a[1];
-   stack_a[1] = stack_a[0];
-   stack_a[0] = tmp;
-   ft_putstr("sa"); 
+ if (*stack_a == NULL || (*stack_a) -> next == NULL)
+      return; 
+   t_stack *tete = (*stack_a);
+   t_stack *cou = tete -> next;
+   tete -> next = cou -> next;
+   cou -> next = tete;
+   *stack_a = cou;
+   ft_putstr("sa\n"); 
 }
-void swap_b(int *stack_a, int *stack_b, int indice_a, int indice_b)
+void swap_b(t_stack **stack_b)
 {
-   int tmp;
-
-   tmp = stack_b[1];
-   stack_b[1] = stack_b[0];
-   stack_b[0] = tmp;
-   ft_putstr("sb"); 
+ if (*stack_b == NULL || (*stack_b) -> next == NULL)
+      return; 
+   t_stack *tete = (*stack_b);
+   t_stack *cou = tete -> next;
+   tete -> next = cou -> next;
+   cou -> next = tete;
+   *stack_b = cou;
+   ft_putstr("sb\n"); 
 }
