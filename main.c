@@ -33,7 +33,7 @@ int main(int argc, char **argv)
     list = malloc((argc - 1) * sizeof(int));
     if (!list)
         return (1);
-    utilitaire_du_main(argv, list, &stack_a, argc);
+    utilitaire_du_main(argv, list, argc, &stack_a);
     list = push_swap(&stack_a, (argc - 1));
 	if(!list)
         return (free (list),1);
@@ -42,5 +42,6 @@ int main(int argc, char **argv)
 		printf("%i", list[i]);
 		i++;
 	}
+    free(list);
     return (0);
 }

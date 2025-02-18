@@ -29,5 +29,7 @@ void        swap_a(t_stack **stack_a);
 void        swap_b(t_stack **stack_b);
 void	    ft_putstr(char *s);
 int	        ft_atoi(char *str);
+void        utils_algo(t_stack *stack_a, int min, int max, int i);
+void        rotate_a(t_stack **stack_a);
 
 #endif
