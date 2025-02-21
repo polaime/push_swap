@@ -21,7 +21,7 @@ typedef struct s_data
 }
 t_data;
 
-int         *push_swap(t_stack *stack_a, int limit);
+t_stack     *push_swap(t_stack **stack_a);
 int         main(int argc, char **argv);
 void        push_b(t_stack **stack_a, t_stack **stack_b);
 void        push_a(t_stack **stack_a, t_stack **stack_b);
@@ -29,7 +29,7 @@ void        swap_a(t_stack **stack_a);
 void        swap_b(t_stack **stack_b);
 void	    ft_putstr(char *s);
 int	        ft_atoi(char *str);
-void        utils_algo(t_stack *stack_a, int min, int max, int i);
+t_stack     *utils_algo(t_stack *stack_a, int i);
 void        rotate_a(t_stack **stack_a);
 
 #endif

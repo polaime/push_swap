@@ -1,13 +1,13 @@
 #include "push_swap.h"
 // turc mecanique
-void print_stack(t_stack *stack) {
-    while (stack != NULL) {
-        printf("%d -> ", stack->value);
-        stack = stack->next;
-    }
-    printf("NULL\n");
-}
-void utils_algo(t_stack *stack_a, int min, int max, int i)
+// void print_stack(t_stack *stack) {
+//     while (stack != NULL) {
+//         printf("%d -> ", stack->value);
+//         stack = stack->next;
+//     }
+//     printf("NULL\n");
+// }
+t_stack *utils_algo(t_stack *stack_a, int i)
 {
 	int	 mediane;
 	int	 j;
@@ -15,7 +15,7 @@ void utils_algo(t_stack *stack_a, int min, int max, int i)
 	j = 0;	
 	mediane = 0;
 	t_stack *mid = stack_a;
-	while(i / 2 < j)
+	while (j < i / 2)
 	{
 		mid = mid -> next;
 		j++;
@@ -23,14 +23,14 @@ void utils_algo(t_stack *stack_a, int min, int max, int i)
 	mediane = mid -> value;
 	j = 0;
 	t_stack *stack_b = NULL;
-	while(j != i)
+	while (j != i)
 	{
 		if (stack_a -> value < mediane)
 			push_b(&stack_a, &stack_b);
 		else
-			rotate_a(stack_a);
+			rotate_a(&stack_a);
 		j++;
-		print_stack (stack_a);
+		// print_stack (stack_a);
 	}
 	while (stack_b != NULL)
 	{
@@ -38,16 +38,16 @@ void utils_algo(t_stack *stack_a, int min, int max, int i)
 	}
 	return (stack_a);
 }
-int	*push_swap(t_stack *stack_a, int limit)
+t_stack *push_swap(t_stack **stack_a)
 {
 	int	 i;
 	int	 min;
 	int	 max;
 
 	i = 0;
-	t_stack *parcours = stack_a;
+	t_stack *parcours = *stack_a;
 	if  (parcours == NULL)
-	return (0);
+		return (NULL);
 	min = parcours -> value;
 	max = parcours -> value;
 	while  (parcours != NULL)
@@ -61,7 +61,7 @@ int	*push_swap(t_stack *stack_a, int limit)
 		parcours = parcours -> next;
 		i++; 
 	}
-	utils_algo(stack_a, min, max, i);
-	return (stack_a);
+	*stack_a = utils_algo(*stack_a, i);
+	return (*stack_a);
 }
 

@@ -23,25 +23,28 @@ void utilitaire_du_main(char **argv, int *list, int argc, t_stack **stack_a)
         j++;
     }
 }
+void print_stack(t_stack *stack)
+{
+    t_stack *current = stack;
+    while (current != NULL)
+    {
+        printf("%d ", current->value);
+        current = current->next;
+    }
+    printf("\n");
+}
 int main(int argc, char **argv)
 {
-    int     i;
     int     *list;
-    
-    i = 0;
+
+    if(argc < 2)
+        return (0);
     t_stack *stack_a = NULL;
     list = malloc((argc - 1) * sizeof(int));
     if (!list)
         return (1);
     utilitaire_du_main(argv, list, argc, &stack_a);
-    list = push_swap(&stack_a, (argc - 1));
-	if(!list)
-        return (free (list),1);
-	while (i <= argc -1)
-	{
-		printf("%i", list[i]);
-		i++;
-	}
-    free(list);
+    stack_a = push_swap(&stack_a);
+	print_stack(stack_a);
     return (0);
 }
