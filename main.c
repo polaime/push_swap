@@ -9,7 +9,7 @@ void utilitaire_du_main(char **argv, int *list, int argc, t_stack **stack_a)
     j = 0;
     while (argc > i)
     {
-        list[i] = ft_atoi((char *)argv[i]);
+        list[i - 1] = ft_atoi((char *)argv[i]);
         t_stack *nouveau_noeud = malloc(sizeof(t_stack));
         if (!nouveau_noeud)
         {
@@ -44,7 +44,7 @@ int main(int argc, char **argv)
     if (!list)
         return (1);
     utilitaire_du_main(argv, list, argc, &stack_a);
-    stack_a = push_swap(&stack_a);
+    stack_a = push_swap(&stack_a, argc);
 	print_stack(stack_a);
     return (0);
 }

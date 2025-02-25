@@ -54,5 +54,4 @@ void  rotate_a(t_stack **stack_a)
 	queue -> next = tete;
 	tete -> next = NULL;
 	ft_putstr("ra\n");
-	tete -> next = NULL;
 }
