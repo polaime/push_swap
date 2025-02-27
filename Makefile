@@ -29,7 +29,8 @@ SRC_FILES 	=	push_swap.c\
 				push_swap_utils.c\
 				ft_atoi.c\
 				ft_putstr.c\
-				main.c
+				main.c\
+				push_swap_tools.c
 OBJ_FILES	= $(SRC_FILES:.c=.o)
 
 #################################

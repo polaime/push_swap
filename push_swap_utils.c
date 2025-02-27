@@ -45,16 +45,17 @@ void swap_b(t_stack **stack_b)
 	*stack_b = cou;
 	ft_putstr("sb\n"); 
 }
-void  rotate_a(t_stack **stack_a)
+int  rotate_b(t_stack **stack_b)
 {
-	if (*stack_a == NULL || (*stack_a) -> next == NULL)
-		return;
-	t_stack *queue = *stack_a;
-	t_stack *tete  = *stack_a;
+	if (*stack_b == NULL || (*stack_b) -> next == NULL)
+		return (0);
+	t_stack *queue = *stack_b;
+	t_stack *tete  = *stack_b;
 	while(queue -> next != NULL)
 		queue = queue -> next;
-	*stack_a = (*stack_a)->next;
+	*stack_b = (*stack_b)->next;
 	queue -> next = tete;
 	tete -> next = NULL;
-	ft_putstr("ra\n");
+	ft_putstr("rb\n");
+	return (1);
 }

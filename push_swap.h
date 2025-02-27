@@ -9,15 +9,13 @@
 typedef struct s_stack
 {
     int value;
+    struct s_stack *previous;
     struct s_stack *next;
 }
 t_stack;
 typedef struct s_data
 {
     t_stack stack_a;
-    t_stack stack_b;
-    int size_a;
-    int size_b;
 }
 t_data;
 
@@ -30,7 +28,9 @@ void        swap_b(t_stack **stack_b);
 void	    ft_putstr(char *s);
 int	        ft_atoi(char *str);
 t_stack     *utils_algo(t_stack *stack_a, int i);
-void        rotate_a(t_stack **stack_a);
+int        rotate_b(t_stack **stack_b);
 void        print_stack(t_stack *stack);
+int         calcul_min(t_stack *stack_a, int i);
+int         calcul_max(t_stack *stack_a);
 
 #endif
