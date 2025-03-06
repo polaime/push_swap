@@ -36,9 +36,11 @@ int push_b(t_stack **stack_a, t_stack **stack_b)
 }
 int push_a(t_stack **stack_a, t_stack **stack_b)
 {
+	t_stack *temp;
+
 	if (*stack_b == NULL)
 		return (0); 
-	t_stack *temp = *stack_b;
+	temp = *stack_b;
 	*stack_b = (*stack_b)-> next;
 	temp -> next = *stack_a;
 	*stack_a = temp;
@@ -78,9 +80,25 @@ int  rotate_a(t_stack **stack_a)
 	tete  = *stack_a;
 	while (queue -> next != NULL)
 		queue = queue -> next;
-	*stack_a = (*stack_a)->next;
+	*stack_a = tete -> next;
 	queue -> next = tete;
 	tete -> next = NULL;
 	ft_putstr("ra\n");
+	return (1);
+}
+int  rotate_b(t_stack **stack_b)
+{
+	t_stack *queue;
+	t_stack *tete;
+	if (*stack_b == NULL || (*stack_b) -> next == NULL)
+		return (0);
+	queue = *stack_b;
+	tete  = *stack_b;
+	while (queue -> next != NULL)
+		queue = queue -> next;
+	*stack_b = tete -> next;
+	queue -> next = tete;
+	tete -> next = NULL;
+	ft_putstr("rb\n");
 	return (1);
 }

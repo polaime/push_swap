@@ -23,8 +23,10 @@ int	calcul_min(t_stack *stack_a, int i)
 }
 int verif_tri(t_stack *stack_a)
 {
+	if (stack_a == NULL)
+	return (1);
 	t_stack *current = stack_a;
-    while (current && current -> next)
+    while (current -> next != NULL)
     {
         if (current -> value > current -> next -> value)
             return (0);
@@ -33,41 +35,39 @@ int verif_tri(t_stack *stack_a)
     return (1);
 }
 
-t_stack	*utils_algo(t_stack *stack_a, int i)
+t_stack	*utils_algo(t_stack *stack_a, int size)
 {
 	int	k;
+	int z;
 	int	mask;
 	t_stack *stack_b = NULL;
-
-	k = 0;
+	
+	z = 0;
 	mask = 1;
-	while (!verif_tri(stack_a) && stack_a != NULL)
+	while (!verif_tri(stack_a))
 	{
-		while (i + 1 > k && stack_a)
-		{
-			if ((stack_a -> value & mask) == 1)
-			{
-				rotate_a(&stack_a);
-				k++;
-			}
-			else
-			{
-				push_b(&stack_a, &stack_b);
-				k++;
-			}
-			stack_a = stack_a -> next;
-		}
 		k = 0;
-		mask = mask << 1;
-		while (stack_b != NULL && stack_a)
+		while (k < size)
+		{
+			if ((stack_a -> value & mask) == 0)
+				z = z + push_b(&stack_a, &stack_b);
+			else
+				z = z + rotate_a(&stack_a);
+			k++;
+		}
+		while (stack_b != NULL)
 			push_a(&stack_a, &stack_b);
+		mask = mask << 1;
+		if (mask == 0)
+			break;
 	}
+	printf("%i\n", z);
 	return (stack_a);
 }
 
-t_stack	*push_swap(t_stack **stack_a, int argc)
+t_stack	*push_swap(t_stack **stack_a, int size)
 {
-	*stack_a = utils_algo(*stack_a, argc);
+	*stack_a = utils_algo(*stack_a, size);
 	return (*stack_a);
 }
 

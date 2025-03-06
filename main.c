@@ -7,20 +7,32 @@ void utilitaire_du_main(char **argv, int *list, int argc, t_stack **stack_a)
 
     i = 1;
     j = 0;
+    t_stack *dernier = NULL;
     while (argc > i)
     {
         list[j] = ft_atoi((char *)argv[i]);
         t_stack *nouveau_noeud = malloc(sizeof(t_stack));
         if (!nouveau_noeud)
-        {
-            free (list);
-            return;
-        }
+            return(free (list));
         nouveau_noeud ->value = list[j];
-        nouveau_noeud ->next  = *stack_a;
-        *stack_a = nouveau_noeud;
+        nouveau_noeud ->next  = NULL;
+        if(*stack_a == NULL)
+            *stack_a = nouveau_noeud;
+        else
+            dernier-> next = nouveau_noeud;
+        dernier = nouveau_noeud;
         i++;
         j++;
+    }
+}
+void free_stack(t_stack *stack)
+{
+    t_stack *tmp;
+    while (stack != NULL)
+    {
+        tmp = stack;
+        stack = stack->next;
+        free(tmp);
     }
 }
 void print_stack(t_stack *stack)
@@ -44,8 +56,9 @@ int main(int argc, char **argv)
     if (!list)
         return (1);
     utilitaire_du_main(argv, list, argc, &stack_a);
-    stack_a = push_swap(&stack_a, argc);
+    stack_a = push_swap(&stack_a, argc - 1);
 	print_stack(stack_a);
     free (list);
+    free_stack(stack_a);
     return (0);
 }

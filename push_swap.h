@@ -19,7 +19,7 @@ typedef struct s_data
 }
 t_data;
 
-t_stack     *push_swap(t_stack **stack_a, int argc);
+t_stack     *push_swap(t_stack **stack_a, int size);
 int         main(int argc, char **argv);
 int         push_b(t_stack **stack_a, t_stack **stack_b);
 int         push_a(t_stack **stack_a, t_stack **stack_b);
@@ -33,6 +33,7 @@ void        print_stack(t_stack *stack);
 int         calcul_min(t_stack *stack_a, int i);
 int         calcul_max(t_stack *stack_a);
 int         push (t_stack **src, t_stack ** dest);
+int         rotate_b(t_stack **stack_b);
 
 
 #endif
