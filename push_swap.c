@@ -40,7 +40,7 @@ t_stack	*utils_algo(t_stack *stack_a, int size)
 	int	k;
 	int z;
 	int	mask;
-	t_stack *stack_b = NULL;
+	t_stack *stack_b;
 	
 	z = 0;
 	mask = 1;
@@ -67,7 +67,10 @@ t_stack	*utils_algo(t_stack *stack_a, int size)
 
 t_stack	*push_swap(t_stack **stack_a, int size)
 {
-	*stack_a = utils_algo(*stack_a, size);
+	if (size = 3)
+		*stack_a = sort_for_3(*stack_a);
+	else
+		*stack_a = utils_algo(*stack_a, size);
 	return (*stack_a);
 }
 
