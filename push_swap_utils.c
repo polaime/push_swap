@@ -1,26 +1,5 @@
 #include "push_swap.h"
 
-int push (t_stack **src, t_stack ** dest)
-{
-	t_stack *nodes;
-
-	if (!*src)
-		return (0);
-	nodes = *src;
-	*src = (*src) -> next;
-	if (!*dest)
-	{
-		*dest = nodes;
-		nodes -> next = NULL;
-	}
-	else
-	{
-		nodes->next = *dest;
-		*dest = nodes;
-	}
-	ft_putstr("push");
-	return (1);
-}
 int push_b(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack *temp;

@@ -1,18 +1,18 @@
 #include "push_swap.h"
-// turc mecanique
 
 int	calcul_min(t_stack *stack_a, int i)
 {
 	int min; 
 	int j;
+	t_stack *parcours;
 
 	j = 0;
 	min = 0;
-	t_stack *parcours = stack_a;
+	parcours = stack_a;
 	if (parcours == NULL)
 		return (0);
 	min = parcours -> value;
-	while (j <= i)
+	while (j < i)
 	{
 		if (parcours -> value < min)
 			min = parcours -> value;
@@ -23,8 +23,6 @@ int	calcul_min(t_stack *stack_a, int i)
 }
 int verif_tri(t_stack *stack_a)
 {
-	if (stack_a == NULL)
-	return (1);
 	t_stack *current = stack_a;
     while (current -> next != NULL)
     {
@@ -40,8 +38,8 @@ t_stack	*utils_algo(t_stack *stack_a, int size)
 	int	k;
 	int z;
 	int	mask;
-	t_stack *stack_b;
-	
+	t_stack *stack_b = NULL;
+
 	z = 0;
 	mask = 1;
 	while (!verif_tri(stack_a))
@@ -67,8 +65,8 @@ t_stack	*utils_algo(t_stack *stack_a, int size)
 
 t_stack	*push_swap(t_stack **stack_a, int size)
 {
-	if (size = 3)
-		*stack_a = sort_for_3(*stack_a);
+	if (size == 3 || size == 2)
+		*stack_a = sort_for_3(*stack_a, size);
 	else
 		*stack_a = utils_algo(*stack_a, size);
 	return (*stack_a);

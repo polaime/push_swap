@@ -34,6 +34,8 @@ int         calcul_min(t_stack *stack_a, int i);
 int         calcul_max(t_stack *stack_a);
 int         push (t_stack **src, t_stack ** dest);
 int         rotate_b(t_stack **stack_b);
+t_stack     *sort_for_3(t_stack *stack_a, int size);
+int         verif_tri(t_stack *stack_a);
 
 
 #endif
