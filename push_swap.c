@@ -67,8 +67,10 @@ t_stack	*push_swap(t_stack **stack_a, int size)
 {
 	if (size == 3 || size == 2)
 		*stack_a = sort_for_3(*stack_a, size);
-	else
+	if (size > 10)
 		*stack_a = utils_algo(*stack_a, size);
+	else 
+		*stack_a = sort_for_10(*stack_a, size);
 	return (*stack_a);
 }
 

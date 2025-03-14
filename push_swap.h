@@ -28,7 +28,7 @@ void        swap_b(t_stack **stack_b);
 void	    ft_putstr(char *s);
 int	        ft_atoi(char *str);
 t_stack     *utils_algo(t_stack *stack_a, int i);
-int        rotate_a(t_stack **stack_a);
+int         rotate_a(t_stack **stack_a);
 void        print_stack(t_stack *stack);
 int         calcul_min(t_stack *stack_a, int i);
 int         calcul_max(t_stack *stack_a);
@@ -36,6 +36,9 @@ int         push (t_stack **src, t_stack ** dest);
 int         rotate_b(t_stack **stack_b);
 t_stack     *sort_for_3(t_stack *stack_a, int size);
 int         verif_tri(t_stack *stack_a);
+int         find_median(t_stack *stack_a, int size);
+t_stack     *sort_for_10(t_stack *stack_a, int size);
+int         ft_isdigit(char c);
 
 
 #endif
