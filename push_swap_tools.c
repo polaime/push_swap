@@ -30,28 +30,30 @@ t_stack *sort_for_3(t_stack *stack_a, int size)
 }
 t_stack *sort_for_10(t_stack *stack_a, int size)
 {
-	t_stack *stack_b;
-	int median;
-	int j;
+    t_stack *stack_b = NULL;
+    int i;
+	int mid_value;
 
-	j = 0;
-	stack_b = NULL;
-	while (!verif_tri(stack_a) && size)
+	i = size;
+	while (!verif_tri(stack_a))
 	{
-		median = find_median(stack_a, size);
-		while (j < size)
-		{
-			if (stack_a -> value < median)
-				rotate_a(&stack_a);
+    	while (i > 3)
+    	{
+			mid_value = find_median(stack_a, size);
+			if (stack_a -> value < mid_value)
+   		     	push_b(&stack_a, &stack_b);
 			else 
-				push_b(&stack_a, &stack_b);
-			j++;
-		}
-		while (stack_b != NULL)
-			push_a(&stack_a, &stack_b);
-		j = 0;
+				rotate_a(&stack_a);
+			i--;
+	    }	
+	    stack_a = sort_for_3(stack_a, size);
+	    while (stack_b != NULL)	
+   		{
+    	    push_a(&stack_a, &stack_b);
+    	}
+		i = size;
 	}
-	return (stack_a);
+    return stack_a;
 }
 int find_median(t_stack *stack_a, int size)
 {

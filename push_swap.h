@@ -41,4 +41,5 @@ t_stack     *sort_for_10(t_stack *stack_a, int size);
 int         ft_isdigit(char c);
 
 
+
 #endif

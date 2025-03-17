@@ -1,3 +1,4 @@
+#include "push_swap.h"
 int utilitaire_du_main(char **argv, int *list, int argc, t_stack **stack_a)
 {
     int     i;
