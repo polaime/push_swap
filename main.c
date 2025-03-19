@@ -84,4 +84,5 @@ int main(int argc, char **argv)
     free (list);
     free_stack(stack_a);
     return (0);
+
 }

@@ -39,7 +39,6 @@ int         verif_tri(t_stack *stack_a);
 int         find_median(t_stack *stack_a, int size);
 t_stack     *sort_for_10(t_stack *stack_a, int size);
 int         ft_isdigit(char c);
-
-
+int	        reverse_rotate_a(t_stack **stack_a);
 
 #endif

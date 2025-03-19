@@ -21,26 +21,28 @@ int	calcul_min(t_stack *stack_a, int i)
 	}
 	return (min);
 }
-int verif_tri(t_stack *stack_a)
+
+int	verif_tri(t_stack *stack_a)
 {
-	t_stack *current = stack_a;
-    while (current -> next != NULL)
-    {
-        if (current -> value > current -> next -> value)
-            return (0);
-        current = current -> next;
-    }
-    return (1);
+	t_stack	*current;
+
+	current = stack_a;
+	while (current -> next != NULL)
+	{
+		if (current -> value > current -> next -> value)
+			return (0);
+		current = current -> next;
+	}
+	return (1);
 }
 
 t_stack	*utils_algo(t_stack *stack_a, int size)
 {
-	int	k;
-	int z;
-	int	mask;
-	t_stack *stack_b = NULL;
+	int			k;
+	int			mask;
+	t_stack		*stack_b;
 
-	z = 0;
+	stack_b = NULL;
 	mask = 1;
 	while (!verif_tri(stack_a))
 	{
@@ -48,18 +50,17 @@ t_stack	*utils_algo(t_stack *stack_a, int size)
 		while (k < size)
 		{
 			if ((stack_a -> value & mask) == 0)
-				z = z + push_b(&stack_a, &stack_b);
+				push_b(&stack_a, &stack_b);
 			else
-				z = z + rotate_a(&stack_a);
+				rotate_a(&stack_a);
 			k++;
 		}
 		while (stack_b != NULL)
 			push_a(&stack_a, &stack_b);
 		mask = mask << 1;
 		if (mask == 0)
-			break;
+			break ;
 	}
-	printf("%i\n", z);
 	return (stack_a);
 }
 
