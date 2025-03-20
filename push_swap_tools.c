@@ -57,8 +57,10 @@ t_stack	*sort_for_10(t_stack *stack_a, int size)
 		while (i > 3)
 		{
 			mid_value = find_median(stack_a, size);
-			if (stack_a -> value < mid_value)
+			if (stack_a -> value <= mid_value)
 				push_b(&stack_a, &stack_b);
+			else if (stack_a -> value > stack_a -> next -> value) 
+				swap_a(&stack_a);
 			else
 				rotate_a(&stack_a);
 			i--;
