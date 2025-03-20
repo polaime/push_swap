@@ -1,10 +1,10 @@
 #include "push_swap.h"
 
-int	calcul_min(t_stack *stack_a, int i)
+int	find_min(t_stack *stack_a, int size)
 {
-	int min; 
-	int j;
-	t_stack *parcours;
+	int		min;
+	int		j;
+	t_stack	*parcours;
 
 	j = 0;
 	min = 0;
@@ -12,7 +12,31 @@ int	calcul_min(t_stack *stack_a, int i)
 	if (parcours == NULL)
 		return (0);
 	min = parcours -> value;
-	while (j < i)
+	while (j < size)
+	{
+		if (parcours -> value < min)
+			min = parcours -> value;
+		parcours = parcours -> next;
+		j++;
+	}
+	if (j < size / 2)
+		return (1);
+	return (0);
+}
+
+int	calcul_min(t_stack *stack_a, int size)
+{
+	int		min;
+	int		j;
+	t_stack	*parcours;
+
+	j = 0;
+	min = 0;
+	parcours = stack_a;
+	if (parcours == NULL)
+		return (0);
+	min = parcours -> value;
+	while (j < size)
 	{
 		if (parcours -> value < min)
 			min = parcours -> value;
@@ -70,7 +94,7 @@ t_stack	*push_swap(t_stack **stack_a, int size)
 		*stack_a = sort_for_3(*stack_a, size);
 	if (size > 10)
 		*stack_a = utils_algo(*stack_a, size);
-	else 
+	else
 		*stack_a = sort_for_10(*stack_a, size);
 	return (*stack_a);
 }

@@ -48,7 +48,8 @@ t_stack	*sort_for_10(t_stack *stack_a, int size)
 {
 	t_stack		*stack_b;
 	int			i;
-	int			mid_value;
+	int			min_value;
+	int			min_index;
 
 	stack_b = NULL;
 	i = size;
@@ -56,16 +57,22 @@ t_stack	*sort_for_10(t_stack *stack_a, int size)
 	{
 		while (i > 3)
 		{
-			mid_value = find_median(stack_a, size);
-			if (stack_a -> value <= mid_value)
-				push_b(&stack_a, &stack_b);
-			else if (stack_a -> value > stack_a -> next -> value) 
-				swap_a(&stack_a);
-			else
-				rotate_a(&stack_a);
+			min_value = calcul_min(stack_a, i);
+			min_index = find_min(stack_a, i);
+			if (!min_index)
+			{
+				while (stack_a -> value != min_value)
+					reverse_rotate_a(&stack_a);
+			}
+			else if (min_index == 1)
+			{
+				while (stack_a -> value != min_value)
+					rotate_a(&stack_a);
+			}
+			push_b(&stack_a, &stack_b);
 			i--;
 		}
-		stack_a = sort_for_3(stack_b, size);
+		stack_a = sort_for_3(stack_a, 3);
 		while (stack_b != NULL)
 			push_a(&stack_a, &stack_b);
 		i = size;
