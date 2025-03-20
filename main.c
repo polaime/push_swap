@@ -80,7 +80,6 @@ int main(int argc, char **argv)
 	if (!verif_nbr(&stack_a, argc - 1))
 		return (free_stack(stack_a), 1);
     stack_a = push_swap(&stack_a, argc - 1);
-	print_stack(stack_a);
     free (list);
     free_stack(stack_a);
     return (0);
