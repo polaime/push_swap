@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pthibaud <pthibaud@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/21 14:39:48 by pthibaud          #+#    #+#             */
+/*   Updated: 2025/03/21 14:40:09 by pthibaud         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	find_min(t_stack *stack_a, int size)
@@ -98,4 +110,3 @@ t_stack	*push_swap(t_stack **stack_a, int size)
 		*stack_a = sort_for_10(*stack_a, size);
 	return (*stack_a);
 }
-

@@ -1,11 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap_utils_a.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pthibaud <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/21 14:24:48 by pthibaud          #+#    #+#             */
+/*   Updated: 2025/03/21 14:24:55 by pthibaud         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-int push_a(t_stack **stack_a, t_stack **stack_b)
+int	push_a(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
 	if (*stack_b == NULL)
-		return (0); 
+		return (0);
 	temp = *stack_b;
 	*stack_b = (*stack_b)-> next;
 	temp -> next = *stack_a;
@@ -13,13 +25,14 @@ int push_a(t_stack **stack_a, t_stack **stack_b)
 	ft_putstr("pa\n");
 	return (1);
 }
-int swap_a(t_stack **stack_a)
-{
-	t_stack *cou;
-	t_stack *tete;
 
-	if (*stack_a == NULL || (*stack_a) -> next == NULL)
-		return (0); 
+int	swap_a(t_stack **stack_a)
+{
+	t_stack		*cou;
+	t_stack		*tete;
+
+	if (*stack_a == NULL || (*stack_a)-> next == NULL)
+		return (0);
 	tete = (*stack_a);
 	cou = tete -> next;
 	tete -> next = cou -> next;
@@ -29,14 +42,15 @@ int swap_a(t_stack **stack_a)
 	return (1);
 }
 
-int  rotate_a(t_stack **stack_a)
+int	rotate_a(t_stack **stack_a)
 {
-	t_stack *queue;
-	t_stack *tete;
-	if (*stack_a == NULL || (*stack_a) -> next == NULL)
+	t_stack		*queue;
+	t_stack		*tete;
+
+	if (*stack_a == NULL || (*stack_a)-> next == NULL)
 		return (0);
 	queue = *stack_a;
-	tete  = *stack_a;
+	tete = *stack_a;
 	while (queue -> next != NULL)
 		queue = queue -> next;
 	*stack_a = tete -> next;

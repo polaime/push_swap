@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pthibaud <pthibaud@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/21 14:41:48 by pthibaud          #+#    #+#             */
+/*   Updated: 2025/03/25 15:44:40 by pthibaud         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -11,14 +23,12 @@ typedef struct s_stack
 	int					value;
 	struct s_stack		*previous;
 	struct s_stack		*next;
-}
-t_stack;
+}t_stack;
 
 typedef struct s_data
 {
 	t_stack	stack_a;
-}
-t_data;
+}t_data;
 
 t_stack		*push_swap(t_stack **stack_a, int size);
 int			main(int argc, char **argv);
@@ -41,5 +51,7 @@ t_stack		*sort_for_10(t_stack *stack_a, int size);
 int			ft_isdigit(char c);
 int			reverse_rotate_a(t_stack **stack_a);
 int			find_min(t_stack *stack_a, int size);
+t_stack		*help_for_sort(t_stack *stack_a, t_stack *stack_b, int i);
+int			help_for_main(char **argv, int i, int *list, int j);
 
 #endif
