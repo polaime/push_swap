@@ -106,6 +106,13 @@ int	main(int argc, char **argv)
 	if (!verif_nbr(&stack_a, argc - 1))
 		return (free_stack(stack_a), 1);
 	stack_a = push_swap(&stack_a, argc - 1);
+	while (stack_a -> next != NULL)
+	{
+		printf("%i ", stack_a -> value);
+		stack_a = stack_a -> next;
+	}
+	printf("%i ", stack_a -> value);
+	printf("\n");
 	free (list);
 	free_stack(stack_a);
 	return (0);

@@ -65,29 +65,11 @@ t_stack	*sort_for_10(t_stack *stack_a, int size)
 	while (!verif_tri(stack_a))
 	{
 		stack_a = help_for_sort(stack_a, stack_b, i);
-		stack_a = sort_for_3(stack_a, 3);
-		while (stack_b != NULL)
-			push_a(&stack_a, &stack_b);
 		i = size;
 	}
 	return (stack_a);
 }
 
-int	find_median(t_stack *stack_a, int size)
-{
-	int		i;
-	t_stack	*tmp;
-
-	i = 0;
-	tmp = stack_a;
-	while (i < size / 2)
-	{
-		tmp = tmp -> next;
-		i++;
-	}
-	printf("%i\n", tmp -> value);
-	return (tmp -> value);
-}
 
 t_stack	*help_for_sort(t_stack *stack_a, t_stack *stack_b, int i)
 {
@@ -111,5 +93,8 @@ t_stack	*help_for_sort(t_stack *stack_a, t_stack *stack_b, int i)
 		push_b(&stack_a, &stack_b);
 		i--;
 	}
+	stack_a = sort_for_3(stack_a, i);
+	while (stack_b)
+		push_a(&stack_a, &stack_b);
 	return (stack_a);
 }
